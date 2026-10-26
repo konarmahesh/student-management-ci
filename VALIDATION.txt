@@ -1,0 +1,10 @@
+Validation performed on Python 3.12.14 (Linux)
+
+PASS: 23 automated pytest cases.
+PASS: Python source distribution and wheel built with python -m build.
+PASS: Wheel installed in a clean temporary virtual environment.
+PASS: Installed package serves login, records, add form and CSS.
+
+Windows launchers use CRLF endings; native Windows execution was not available here.
+GitHub Actions workflow is included but has not been executed in your repository.
+No runtime database, credentials, virtual environment or cache is included in this ZIP.

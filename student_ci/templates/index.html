@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<p class="eyebrow">YOUR WORKSPACE</p>
+<div class="heading"><div><h1>Student records</h1><p class="muted">Add, find and maintain student information.</p></div><a class="button" href="{{ url_for('add_student') }}">+ Add student</a></div>
+<section class="card">
+  <form class="search" method="get"><label class="sr-only" for="q">Search by name or roll number</label><input id="q" name="q" value="{{ query }}" placeholder="Search by name or roll number"><button class="secondary">Search</button>{% if query %}<a href="{{ url_for('home') }}">Clear</a>{% endif %}</form>
+  <p class="muted">{{ students|length }} record(s){% if query %} matching your search{% endif %}</p>
+  <div class="table-wrap"><table><thead><tr><th>Student name</th><th>Roll number</th><th>Course</th><th>Actions</th></tr></thead><tbody>
+  {% for student in students %}
+  <tr><td><strong>{{ student.name }}</strong></td><td>{{ student.roll_number }}</td><td>{{ student.course }}</td><td class="actions">
+    <a href="{{ url_for('edit_student', student_id=student.id) }}">Edit</a>
+    <form method="post" action="{{ url_for('delete_student', student_id=student.id) }}" onsubmit="return confirm('Delete this student record?');">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="delete">Delete</button>
+    </form>
+  </td></tr>
+  {% else %}<tr><td colspan="4" class="empty">No student records found. Use “Add student” to get started.</td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+{% endblock %}

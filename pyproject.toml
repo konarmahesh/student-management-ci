@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==84.2.1", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "student-management-ci"
+version = "1.0.0"
+description = "Student records application with an automated CI build and test workflow"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["Flask==3.1.3"]
+
+[tool.setuptools.packages.find]
+include = ["student_ci*"]
+
+[tool.setuptools.package-data]
+student_ci = ["templates/*.html", "static/*.css"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

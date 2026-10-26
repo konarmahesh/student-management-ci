@@ -1,0 +1,23 @@
+STUDENT MANAGEMENT — COMPLETE DEVOPS PROJECT
+
+1. Stop your old Flask server with Ctrl+C.
+2. Extract the ENTIRE ZIP to a new folder.
+3. Open student-management-ci-complete.
+4. Double-click START_WINDOWS.bat.
+5. On first launch, choose a username and a password (8+ characters).
+   Password typing is hidden. Type it and press Enter; repeat when asked.
+6. Open http://127.0.0.1:5000 and sign in.
+
+Python 3.12 and internet for package installation are required.
+Keep the terminal running. Ctrl+C stops the website.
+Your existing Python 3.12.10 is suitable.
+
+For VS Code, open the folder containing app.py using File > Open Folder.
+No manual code copying or template-folder creation is needed.
+
+TEST_WINDOWS.bat runs tests, builds the application and checks the package.
+README.md contains detailed GitHub upload and CI demonstration steps.
+The GitHub workflow starts only after you push this project to GitHub.
+
+Your new records are stored in instance/students.db.
+Your old project and its records are not modified by this ZIP.

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('home') }}">← Back to records</a>
+<section class="card form-card"><p class="eyebrow">STUDENT DETAILS</p><h1>{{ 'Edit student' if student_id else 'Add student' }}</h1>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="name">Student name</label><input id="name" name="name" value="{{ student.get('name', '') if student is mapping else student['name'] }}" maxlength="100" required>
+  <label for="roll_number">Roll number</label><input id="roll_number" name="roll_number" value="{{ student.get('roll_number', '') if student is mapping else student['roll_number'] }}" maxlength="100" required>
+  <label for="course">Course</label><input id="course" name="course" value="{{ student.get('course', '') if student is mapping else student['course'] }}" maxlength="100" required>
+  <div class="form-actions"><button>Save student</button><a href="{{ url_for('home') }}">Cancel</a></div>
+</form></section>
+{% endblock %}
